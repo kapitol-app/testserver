@@ -14,14 +14,13 @@ func (ddep *DummyDataEndpoints)GetSenatorUri() string {
 }
 
 func (ddep *DummyDataEndpoints)GetSenators(w http.ResponseWriter, senators *[]models.Senator) {
-	ms := make([]map[string]interface{}, 0, len(*senators))
-	fmt.Println("senators:", ms)
-	for i, senator := range *senators {
-		ms = append(ms, senator.ToMap())
-		fmt.Println("i:", i, "ms length:", len(ms))
+	sens := make([]map[string]interface{}, 0, len(*senators))
+	fmt.Println("senators:", sens)
+	for _, senator := range *senators {
+		sens = append(sens, senator.ToMap())
 	}
 
-	payload := map[string]interface{} {"senators": ms}
+	payload := map[string]interface{} {"senators": sens}
 	res := restresponse.Response{Code: restresponse.OK, Payload: payload}
 	res.Respond(w)
 }
