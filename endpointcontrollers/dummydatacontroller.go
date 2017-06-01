@@ -7,12 +7,8 @@ import (
 	"fmt"
 	"github.com/kapitol-app/testserver/models"
 	"io/ioutil"
-	"os"
-	"log"
-	"path"
+	"path/filepath"
 )
-
-const senatorJsonFilePath = "files/senator.json"
 
 type DummyDataController struct {
 	EndPoints *endpoints.DummyDataEndpoints
@@ -26,16 +22,17 @@ func (ddc *DummyDataController)Initialize() {
 }
 
 func (ddc *DummyDataController)GetSenators(w http.ResponseWriter, req *http.Request) {
-	ex, err := os.Executable()
+	fp, err := filepath.Abs("files/senator.json")
 	if err != nil {
-		log.Fatal("Error: could not get current senator executalbe file path. Error:", err)
-		panic(err)
+		fmt.Println("Error: could not abs file path file at error:", err)
+		// handle error here
+		return
 	}
 
-	senJsonData, err := ioutil.ReadFile(path.Join(path.Dir(ex), senatorJsonFilePath))
+	senJsonData, err := ioutil.ReadFile(fp)
 	if err != nil {
-		fmt.Println("Error: could not read senator json file at:", senatorJsonFilePath, "error:", err)
-		//handle error here
+		fmt.Println("Error: could not read senator json file at:", fp, "error:", err)
+		// handle error here
 		return
 	}
 
@@ -43,6 +40,7 @@ func (ddc *DummyDataController)GetSenators(w http.ResponseWriter, req *http.Requ
 	err = json.Unmarshal(senJsonData, &senators)
 	if err != nil {
 		fmt.Println("Error: could not marshal senator json. Error:", err)
+		// handle error here
 		return
 	}
 
