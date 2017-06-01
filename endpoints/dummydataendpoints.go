@@ -2,8 +2,8 @@ package endpoints
 
 import (
 	"net/http"
-	"github.com/greenac/testserver/restresponse"
-	"github.com/greenac/testserver/models"
+	"github.com/kapitol-app/testserver/restresponse"
+	"github.com/kapitol-app/testserver/models"
 	"fmt"
 )
 
