@@ -5,8 +5,8 @@ import (
 	"log"
 	"net/http"
 	"github.com/gorilla/mux"
-	"github.com/greenac/testserver/endpoints"
-	"github.com/greenac/testserver/endpointcontrollers"
+	"github.com/kapitol-app/testserver/endpoints"
+	"github.com/kapitol-app/testserver/endpointcontrollers"
 )
 
 const hostAndPort = ":7979"

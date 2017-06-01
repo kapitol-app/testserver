@@ -3,8 +3,8 @@ package endpoints
 import (
 	"net/http"
 	"fmt"
-	"github.com/greenac/testserver/models"
-	"github.com/greenac/testserver/restresponse"
+	"github.com/kapitol-app/testserver/models"
+	"github.com/kapitol-app/testserver/restresponse"
 )
 
 type UserEndpoints struct{}

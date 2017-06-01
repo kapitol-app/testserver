@@ -1,11 +1,11 @@
 package endpointcontrollers
 
 import (
-	"github.com/greenac/testserver/endpoints"
+	"github.com/kapitol-app/testserver/endpoints"
 	"net/http"
 	"encoding/json"
 	"fmt"
-	"github.com/greenac/testserver/models"
+	"github.com/kapitol-app/testserver/models"
 	"io/ioutil"
 	"os"
 	"log"
